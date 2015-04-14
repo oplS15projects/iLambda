@@ -1,0 +1,30 @@
+/* Entire body */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #333333;
+  background-color: #fff; }
+
+/* Container in body */
+.container {
+  max-width: 750px;
+}
+
+/* Entire DOM */
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: transparent; }
+
+/* iLambda logo */
+.logo {
+  width: 300px;
+  height: auto;
+  margin-bottom: 25px;
+}
+
+/* Main content inside of container */
+.main {
+  padding: 40px 15px;
+  text-align: center;
+}
