@@ -6,15 +6,29 @@ body {
   color: #333333;
   background-color: #fff; }
 
+.breadcrumbs {
+  font-size: 12px;
+  margin-bottom: 50px;
+}
+
 /* Container in body */
 .container {
   max-width: 750px;
+}
+
+.current-tab {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 /* Entire DOM */
 html {
   font-size: 10px;
   -webkit-tap-highlight-color: transparent; }
+
+h1 {
+  text-align: center;
+}
 
 /* iLambda logo */
 .logo {
@@ -27,4 +41,8 @@ html {
 .main {
   padding: 40px 15px;
   text-align: center;
+}
+
+.prev {
+  margin-right: 10px;
 }
