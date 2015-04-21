@@ -6,4 +6,4 @@
 
 (define fields (isense-project-field "Number" 2 "deg" ""))
 
-(isense-create-project (list cred) "Test Project" (list fields))
+(isense-create-project cred "Test Project" fields)
