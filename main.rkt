@@ -61,63 +61,63 @@
                          ;; Projects will go here
                          
                          ;; Project - Gummy Bear Lab
-                         (strong "Gummy Bear Lab:  ")(button ([type "submit"]) "Create Project")
-                         (p "Determine how a gummy bear changes when it is soaked in water overnight.")
-                         (img ([src "http://www.acclaimmag.com/wp-content/uploads/2014/01/2074903820_1375612450.jpg"][class "gummybear-pic"]))
+                         (strong "  Gummy Bear Lab:  ")(button ([type "submit"]) "Create Project")
+                         (p "  Determine how a gummy bear changes when it is soaked in water overnight.")
+                         (img ([src "http://www.acclaimmag.com/wp-content/uploads/2014/01/2074903820_1375612450.jpg"][class "projectIMG"]))
                          (p "")
                          
                          ;; Project - Measuring Heart Rate
-                         (strong "Measuring Heart Rate:  ")(button ([type "submit"]) "Create Project")
-                         (p "Learn one method of testing aerobic activity for heart recovery.")
-                         (img ([src "http://www.runnersgoal.com/wp-content/uploads/2013/07/heartratezone.jpg"][class "heartrate-pic"]))
+                         (strong "  Measuring Heart Rate:  ")(button ([type "submit"]) "Create Project")
+                         (p "  Learn one method of testing aerobic activity for heart recovery.")
+                         (img ([src "http://www.runnersgoal.com/wp-content/uploads/2013/07/heartratezone.jpg"][class "projectIMG"]))
                          (p "")
                          
                          ;; Project - Heart Absorption
-                         (strong "Heat Absorption:  ")(button ([type "submit"]) "Create Project")
-                         (p "Determine why you stay cooler in lighter clothes than darker clothes in the hot sun.")
-                         (img ([src "http://www.bakesforbreastcancer.org/wp-content/uploads/2012/03/sun.jpg"][class "sun-pic"]))
+                         (strong "  Heat Absorption:  ")(button ([type "submit"]) "Create Project")
+                         (p "  Determine why you stay cooler in lighter clothes than darker clothes in the hot sun.")
+                         (img ([src "http://www.bakesforbreastcancer.org/wp-content/uploads/2012/03/sun.jpg"][class "projectIMG"]))
                          (p "")
                          
                          ;; Project - Holding your breath
-                         (strong "Holding Your Breath:  ")(button ([type "submit"]) "Create Project")
-                         (p "Explore how your body handles holding your breath.")
-                         (img ([src "http://www.itsallyogababy.com/wp-content/uploads/2013/01/breathing.jpeg"][class "breathing-pic"]))
+                         (strong "  Holding Your Breath:  ")(button ([type "submit"]) "Create Project")
+                         (p "  Explore how your body handles holding your breath.")
+                         (img ([src "http://www.itsallyogababy.com/wp-content/uploads/2013/01/breathing.jpeg"][class "projectIMG"]))
                          (p "")
                          
                          ;; Project - Freefall
-                         (strong "Freefall:  ")(button ([type "submit"]) "Create Project")
-                         (p "Determine the relationship between distance and time for free-falling objects.")
-                         (img ([src "http://ecx.images-amazon.com/images/I/31E3Z3sDcrL._SY300_.jpg"][class "freefall-pic"]))
+                         (strong "  Freefall:  ")(button ([type "submit"]) "Create Project")
+                         (p "  Determine the relationship between distance and time for free-falling objects.")
+                         (img ([src "http://ecx.images-amazon.com/images/I/31E3Z3sDcrL._SY300_.jpg"][class "projectIMG"]))
                          (p "")
                          
                          ;; Project - Bone Length and Height
                          (strong "Correlation of Bone Length and Height Activity:  ")(button ([type "submit"]) "Create Project")
                          (p "Determine is there is a relationship between a person's bone size and overall height.")
-                         (img ([src "http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Human_arm_bones_diagram.svg/1167px-Human_arm_bones_diagram.svg.png"][class "bone-pic"]))
+                         (img ([src "http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Human_arm_bones_diagram.svg/1167px-Human_arm_bones_diagram.svg.png"][class "projectIMG"]))
                          (p "")
                          
                          ;; Project - Objects Density
-                         (strong "Density of Objects:")(button ([type "submit"]) "Create Project")
-                         (p "Compare the density of various materials.")
-                         (img ([src "http://isenseproject.org/media/99/99efbe54c90a72a1115faade22a5575f/plastic-counters.jpg"][class "density-pic"]))
+                         (strong "  Density of Objects:")(button ([type "submit"]) "Create Project")
+                         (p "  Compare the density of various materials.")
+                         (img ([src "http://isenseproject.org/media/99/99efbe54c90a72a1115faade22a5575f/plastic-counters.jpg"][class "projectIMG"]))
                          (p "")
                          
                          ;; Project - Dice Rolls
-                         (strong "Distribution of Dice Rolls:  ")(button ([type "submit"]) "Create Project")
-                         (p "Understand the concepts of theoretical and experimental probability.")
-                         (img ([src "http://isenseproject.org/media/35/35270c9752997a472374aec0ce72b6e6/cover%20picture.jpg"][class "dice-pic"]))
+                         (strong "  Distribution of Dice Rolls:  ")(button ([type "submit"]) "Create Project")
+                         (p "  Understand the concepts of theoretical and experimental probability.")
+                         (img ([src "http://isenseproject.org/media/35/35270c9752997a472374aec0ce72b6e6/cover%20picture.jpg"][class "projectIMG"]))
                          (p "")
                          
                          ;; Project - Hooke's Law
-                         (strong "Hooke's Law and Spring Constants:  ")(button ([type "submit"]) "Create Project")
-                         (p "Understand the concepts of Hooke's Law and spring constants.")
-                         (img ([src "http://isenseproject.org/media/37/3724d70818ac49716c81aa845919b764/cover%20picture.jpg"][class "spring-pic"]))
+                         (strong "  Hooke's Law and Spring Constants:  ")(button ([type "submit"]) "Create Project")
+                         (p "  Understand the concepts of Hooke's Law and spring constants.")
+                         (img ([src "http://isenseproject.org/media/37/3724d70818ac49716c81aa845919b764/cover%20picture.jpg"][class "projectIMG"]))
                          (p "")
                           
                          ;; Project - Replacement Probability
-                         (strong "Single Draw with Replacement Probability with Two Distributions:  ")(button ([type "submit"]) "Create Project")
-                         (p "Determine the quantity of each color of th object in a container.")
-                         (img ([src "http://isenseproject.org/media/9f/9f4e88e4fb694cc4ea141fbadbaab685/skittles.jpg"][class "skittles-pic"]))
+                         (strong "  Single Draw with Replacement Probability with Two Distributions:  ")(button ([type "submit"]) "Create Project")
+                         (p "  Determine the quantity of each color of the object in a container.")
+                         (img ([src "http://isenseproject.org/media/9f/9f4e88e4fb694cc4ea141fbadbaab685/skittles.jpg"][class "projectIMG"]))
                          (p "")
                          
                          ;; -------------------

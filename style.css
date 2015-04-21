@@ -44,3 +44,12 @@ html {
 .prev {
   margin-right: 10px;
 }
+
+
+/* Project Images */
+.projectIMG {
+  width: auto;
+  height: 250px;
+  margin-bottom: 30px;
+  margin-left: 10px;
+}
