@@ -6,9 +6,20 @@ body {
   color: #333333;
   background-color: #fff; }
 
+/* Breadcrumbs on top of pages */
+.breadcrumbs {
+  font-size: 12px;
+  margin-bottom: 50px;
+}
+
 /* Container in body */
 .container {
   max-width: 750px;
+}
+
+.current-tab {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 /* Entire DOM */
@@ -27,4 +38,9 @@ html {
 .main {
   padding: 40px 15px;
   text-align: center;
+}
+
+/* Next space btw prev and next buttons */
+.prev {
+  margin-right: 10px;
 }
