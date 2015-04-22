@@ -3,6 +3,8 @@
 (require web-server/servlet
          web-server/servlet-env)
 
+(require net/url)
+
 (define (app req)
   ;; LOGIN PAGE
   (send/suspend
@@ -46,6 +48,14 @@
                                 (a ([href "http://isenseproject.org/users/new"]) " Click here to register")
                                 ".")
                              )))))))
+  
+  ;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ;; ISENSE LOGIN IMPLEMENTATION  
+  
+  (define test-url(string->url "http://isenseproject.org/api/v1/users/myInfo?email=your@email.com&password=yourpassword"))
+  
+  (display-pure-port(get-pure-port test-url))
+  
   ;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   ;; PROJECT SELECTION PAGE
   (send/suspend
@@ -61,8 +71,8 @@
                          ;; Projects will go here
                          
                          ;; Project - Gummy Bear Lab
-                         (strong "  Gummy Bear Lab:  ")(button ([type "submit"]) "Create Project")
-                         (p "  Determine how a gummy bear changes when it is soaked in water overnight.")
+                         (strong "Gummy Bear Lab:  ")(button ([type "submit"]) "Create Project")
+                         (p "Determine how a gummy bear changes when it is soaked in water overnight.")
                          (img ([src "http://www.acclaimmag.com/wp-content/uploads/2014/01/2074903820_1375612450.jpg"][class "projectIMG"]))
                          (p "")
                          
@@ -79,14 +89,14 @@
                          (p "")
                          
                          ;; Project - Holding your breath
-                         (strong "  Holding Your Breath:  ")(button ([type "submit"]) "Create Project")
-                         (p "  Explore how your body handles holding your breath.")
+                         (strong "Holding Your Breath:  ")(button ([type "submit"]) "Create Project")
+                         (p "Explore how your body handles holding your breath.")
                          (img ([src "http://www.itsallyogababy.com/wp-content/uploads/2013/01/breathing.jpeg"][class "projectIMG"]))
                          (p "")
-                         
+                       
                          ;; Project - Freefall
-                         (strong "  Freefall:  ")(button ([type "submit"]) "Create Project")
-                         (p "  Determine the relationship between distance and time for free-falling objects.")
+                         (strong "Freefall:  ")(button ([type "submit"]) "Create Project")
+                         (p "Determine the relationship between distance and time for free-falling objects.")
                          (img ([src "http://ecx.images-amazon.com/images/I/31E3Z3sDcrL._SY300_.jpg"][class "projectIMG"]))
                          (p "")
                          
@@ -97,26 +107,26 @@
                          (p "")
                          
                          ;; Project - Objects Density
-                         (strong "  Density of Objects:")(button ([type "submit"]) "Create Project")
-                         (p "  Compare the density of various materials.")
+                         (strong "Density of Objects:")(button ([type "submit"]) "Create Project")
+                         (p "Compare the density of various materials.")
                          (img ([src "http://isenseproject.org/media/99/99efbe54c90a72a1115faade22a5575f/plastic-counters.jpg"][class "projectIMG"]))
                          (p "")
                          
                          ;; Project - Dice Rolls
-                         (strong "  Distribution of Dice Rolls:  ")(button ([type "submit"]) "Create Project")
-                         (p "  Understand the concepts of theoretical and experimental probability.")
+                         (strong "Distribution of Dice Rolls:  ")(button ([type "submit"]) "Create Project")
+                         (p "Understand the concepts of theoretical and experimental probability.")
                          (img ([src "http://isenseproject.org/media/35/35270c9752997a472374aec0ce72b6e6/cover%20picture.jpg"][class "projectIMG"]))
                          (p "")
                          
                          ;; Project - Hooke's Law
-                         (strong "  Hooke's Law and Spring Constants:  ")(button ([type "submit"]) "Create Project")
-                         (p "  Understand the concepts of Hooke's Law and spring constants.")
+                         (strong "Hooke's Law and Spring Constants:  ")(button ([type "submit"]) "Create Project")
+                         (p "Understand the concepts of Hooke's Law and spring constants.")
                          (img ([src "http://isenseproject.org/media/37/3724d70818ac49716c81aa845919b764/cover%20picture.jpg"][class "projectIMG"]))
                          (p "")
                           
                          ;; Project - Replacement Probability
-                         (strong "  Single Draw with Replacement Probability with Two Distributions:  ")(button ([type "submit"]) "Create Project")
-                         (p "  Determine the quantity of each color of the object in a container.")
+                         (strong "Single Draw with Replacement Probability with Two Distributions:  ")(button ([type "submit"]) "Create Project")
+                         (p "Determine the quantity of each color of the object in a container.")
                          (img ([src "http://isenseproject.org/media/9f/9f4e88e4fb694cc4ea141fbadbaab685/skittles.jpg"][class "projectIMG"]))
                          (p "")
                          
