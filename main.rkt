@@ -50,7 +50,8 @@
                              )))))))
   
   ;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  ;; ISENSE LOGIN IMPLEMENTATION  
+  ;; ISENSE LOGIN IMPLEMENTATION
+  ;; TO DO: Integrate with form
   
   (define test-url(string->url "http://isenseproject.org/api/v1/users/myInfo?email=your@email.com&password=yourpassword"))
   
@@ -93,7 +94,7 @@
                          (p "Explore how your body handles holding your breath.")
                          (img ([src "http://www.itsallyogababy.com/wp-content/uploads/2013/01/breathing.jpeg"][class "projectIMG"]))
                          (p "")
-                       
+                         
                          ;; Project - Freefall
                          (strong "Freefall:  ")(button ([type "submit"]) "Create Project")
                          (p "Determine the relationship between distance and time for free-falling objects.")
@@ -123,7 +124,7 @@
                          (p "Understand the concepts of Hooke's Law and spring constants.")
                          (img ([src "http://isenseproject.org/media/37/3724d70818ac49716c81aa845919b764/cover%20picture.jpg"][class "projectIMG"]))
                          (p "")
-                          
+                         
                          ;; Project - Replacement Probability
                          (strong "Single Draw with Replacement Probability with Two Distributions:  ")(button ([type "submit"]) "Create Project")
                          (p "Determine the quantity of each color of the object in a container.")
@@ -162,6 +163,18 @@
                                    ;; Prev and next buttons
                                    (button ([type "submit"] [class "btn btn-danger prev"]) "Prev")
                                    (button ([type "submit"] [class "btn btn-success"]) "Save & Continue"))))))))))
+;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+;; PROJECT CREATION CODE
+;; TO-DO: Implement with form
+
+(require "isense-racket/isense-3.rkt")
+
+(define cred (isense-credentials-pass "your@email.com" "yourpassword"))
+
+(define fields (isense-project-field "Number" 2 "deg" ""))
+
+(define a (isense-create-project cred "Test Project" (list fields)))
+
 ;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ;; Start web application
 ;; Includes path to CSS file
