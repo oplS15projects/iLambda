@@ -14,7 +14,7 @@
          web-server/servlet-env)
 
 ;; isense-racket api
-(require "isense-racket-api/isense-3.rkt")
+(require "isense-racket/isense-3.rkt")
 
 ;; net library for get and post requests
 (require net/url)
