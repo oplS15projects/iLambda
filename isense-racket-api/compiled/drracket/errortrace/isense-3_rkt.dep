@@ -1,0 +1,1 @@
+("6.1.1" ("cba99c568f4996b25d1b1ce5125ac1416f65ed10" . "95abe430513569a7947b124fd50e16cf38a41136") (collects #"json" #"main.rkt") #"/Users/kaitlyncarcia/Repos/iLambda/isense-racket/quick-net.rkt" (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt") (collects #"net" #"url.rkt"))
