@@ -426,7 +426,7 @@
                      ;; link to boostrap styles
                      (link ([rel "stylesheet"] [href "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"]))
                      ;; link to boostrap file input
-                     (link ([rel "stylesheet"][href "//http://gregpike.net/demos/bootstrap-file-input/bootstrap.file-input.js"]))
+                     ;;(link ([rel "stylesheet"][href "//http://gregpike.net/demos/bootstrap-file-input/bootstrap.file-input.js"]))
                      ;; link to our style sheet
                      (link ([rel "stylesheet"] [href "/style.css"])))
                     (body (div ([class "container"])
@@ -438,7 +438,7 @@
                                     ;; project title form
                                     (form ([class "form-horizontal"][action,(embed/url add-media-objects)])
                                           (h1 "Add media objects to your project")
-                                         (input ([type "file"][class "filestyle"]))
+                                          (input ([type "file"][class "filestyle"][data-buttonBefore "true"]))
                                         
                                           ;; ---------------FORM CONTENT GOES HERE---------------
                                           ;; next button
