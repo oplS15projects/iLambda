@@ -284,8 +284,8 @@
                (link ([rel "stylesheet"] [href "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"]))
                ;; link to our style sheet
                (link ([rel "stylesheet"] [href "/style.css"]))
-               (body (h1 "Project Selection Page")
-                     (p "Choose from the list of pre-existing projects:")
+               (body (h1 "Project Selection")
+                     (p ([class "lead"])"Choose from the list of pre-existing projects:")
                      ;; project - Gummy Bear Lab
                      (form ([action,(embed/url create-project)] [class "form-horizontal"])                         
                            (strong "Gummy Bear Lab:  ")
@@ -425,18 +425,25 @@
                      (link ([rel "shortcut icon"] [href "/favicon.ico"]))
                      ;; link to boostrap styles
                      (link ([rel "stylesheet"] [href "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"]))
+                     ;; link to boostrap file input
+                     (link ([rel "stylesheet"][href "//http://gregpike.net/demos/bootstrap-file-input/bootstrap.file-input.js"]))
                      ;; link to our style sheet
                      (link ([rel "stylesheet"] [href "/style.css"])))
                     (body (div ([class "container"])
                                (div ([class "main"])
                                     ;;  bread crumbs
                                     (p ([class "breadcrumbs"]) "Select Project > Project Title > "(span ([class "current-tab"]) "Add Media Objects")" > Add Contibutor Keys > Finish")
-                                    (p "media objects page...")
+                                   
                                     ;; ---------------PAGE CONTENT GOES HERE---------------
                                     ;; project title form
                                     (form ([class "form-horizontal"][action,(embed/url add-media-objects)])
+                                          (h1 "Add media objects to your project")
+                                         (input ([type "file"][class "filestyle"]))
+                                        
                                           ;; ---------------FORM CONTENT GOES HERE---------------
                                           ;; next button
+                                          (p "")
+                                          (button ([type "submit"] [class "btn btn-primary"])"Skip & Continue")
                                           (button ([type "submit"] [class "btn btn-success"]) "Save & Continue"))))))))
           (define (add-media-objects request)
             ;; ---------------CODE TO ADD MEDIA OBJECTS GOES HERE---------------
@@ -464,12 +471,27 @@
                                (div ([class "main"])
                                     ;;  bread crumbs
                                     (p ([class "breadcrumbs"]) "Select Project > Project Title > Add Media Objects > "(span ([class "current-tab"]) "Add Contributor Key")" > Finish")
-                                    (p "contrib key page...")
                                     ;; ---------------PAGE CONTENT GOES HERE---------------
                                     ;; project title form
                                     (form ([class "form-horizontal"][action,(embed/url add-contrib-key)])
+                                          (h1 "Add Contributor Key for you project:")
+                                          (p ([class "lead"])"Anyone with a contributor key to this project will always be able to contribute to it. This
+                                          allows users to contribute without logging in, and it also enables users to contribute to
+                                          locked projects. The label will help you manage your contributor keys, and it is only
+                                          visible to you. The key will be distributed to those who seek to contribute to your project
+                                          and require a contributor key to do so.")
+                                          (div ([class "form-group"])
+                                               (label ([for "Label"] [class "col-xs-2 col-sm-2 control-label"]) "Label")
+                                               (div ([class "col-xs-10 col-sm-10"])
+                                                    (input ([type "Label"] [class "form-control"] [name "Label"]))))
+                                     ;; password
+                                          (div ([class "form-group"])
+                                               (label ([for "Key"] [class "col-xs-2 col-sm-2 control-label"]) "Key")
+                                               (div ([class "col-xs-10 col-sm-10s"])
+                                                    (input ([type "Key"] [class "form-control"] [name "Key"]))))
                                           ;; ---------------FORM CONTENT GOES HERE---------------
                                           ;; next button
+                                          (button ([type "submit"] [class "btn btn-primary"])"Skip & Continue")
                                           (button ([type "submit"] [class "btn btn-success"]) "Save & Continue"))))))))
           (define (add-contrib-key request)
             ;; ---------------CODE TO ADD CONTRIB KEYS GOES HERE---------------
@@ -512,5 +534,5 @@
 (serve/servlet render-sign-in-page
                #:extra-files-paths
                (list
-                (build-path "/Users/kaitlyncarcia/Repos/iLambda") "htdocs"))
-;;(build-path "/home/ravythok/opl/iLambda") "style"))
+               ;; (build-path "/Users/kaitlyncarcia/Repos/iLambda") "htdocs"))
+(build-path "/home/ravythok/opl/iLambda") "style"))
