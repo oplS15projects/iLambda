@@ -1,16 +1,30 @@
-# iLambda
+![screenshot showing env diagram](iLambda-logo.png)
 
 iLambda is designed to aid teachers in setting up projects on iSENSE--a system for collecting, visualizing, and sharing data.
 
 ##Written By:
-Kaitlyn Carcia (kcarcia) 
-Ravy Thok (rthok)
+* Kaitlyn Carcia (kcarcia) 
+* Ravy Thok (rthok)
 
-##Screenshot
-(insert a screenshot here. You may opt to get rid of the title for it. You need at least one screenshot. Make it actually appear here, don't just add a link.)
+####Screenshot of the Login Page
 
-Here's a demonstration of how to display an image that's uploaded to this repo:
-![screenshot showing env diagram](withdraw.png)
+![screenshot showing env diagram](iLambda-Login_Page.png)
+
+####Screenshot of the Project Selection Page
+
+![screenshot showing env diagram](iLambda-Project_Selection_Page.png)
+
+####Screenshot of the Project Title Page
+
+![screenshot showing env diagram](iLambda-ProjectTitle.png)
+
+####Screenshot of the Project Media Object Page
+
+![screenshot showing env diagram](iLambda-Media_Page.png)
+
+####Screenshot of Finish Page
+
+![screenshot showing env diagram](iLambda-Finish_Page.png)
 
 ##Concepts Demonstrated
 Identify the OPL concepts demonstrated in your project. Be brief. A simple list and example is sufficient. 
@@ -19,7 +33,8 @@ Identify the OPL concepts demonstrated in your project. Be brief. A simple list 
 * **Symbolic language processing techniques** are used in the parser.
 
 ##External Technology and Libraries
-Briefly describe the existing technology you utilized, and how you used it. Provide a link to that technology(ies).
+* We used calls in iSENSE's API to verify login credentials in iLambda.
+* We also used Racket's built-in libraries: Web server and Net.
 
 
 ####Kaitlyn's favorite line of code
@@ -29,14 +44,9 @@ Remember code looks something like this:
 (map (lambda (x) (foldr compose functions)) data)
 ```
 ####Ravy's favorite line of code
-This expression reads in a regular expression and elegantly matches it against a pre-existing hashmap....
-```scheme
-(let* ((expr (convert-to-regexp (read-line my-in-port)))
-             (matches (flatten
-                       (hash-map *words*
-                                 (lambda (key value)
-                                   (if (regexp-match expr key) key '()))))))
-  matches)
+This code is for our Media Object Page. It created a browse button on the webpage that allows the user to upload a file from their computer.
+```
+(input ([type "file"][class "filestyle"] [name "file"]))
 ```
 
 ##Additional Remarks
