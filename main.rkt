@@ -56,21 +56,7 @@
 
 ;; returns list of fields of project
 (define (fields project)
-  (car (cddddr project)))
-
-(define (description project)
-  (cond (( = project 1) "Despription: Determine how a gummy bear changes when it is soaked in water overnight.")
-        (( = project 2) "Despription: Learn one method of testing aerobic activity for heart recovery.")
-        (( = project 3) "Despription: Determine why you stay cooler in lighter clothes than darker clothes in the hot sun.Explore how your body handles holding your breath.")
-        (( = project 4) "Despription: Explore how your body handles holding your breath.")
-        (( = project 5) "Despription: Determine the relationship between distance and time for free-falling objects")
-        (( = project 6) "Despription: Determine is there is a relationship between a person's bone size and overall height.")
-        (( = project 7) "Despription: Compare the density of various materials.")
-        (( = project 8) "Despription: Understand the concepts of theoretical and experimental probability.")
-        (( = project 9) "Despription: Understand the concepts of Hooke's Law and spring constants.")
-        (( = project 10) "Despription: Determine the quantity of each color of the object in a container.")
-        (else "No Description")))
-        
+  (car (cddddr project)))   
 
 ;; ********* fields getters *********
 ;; returns type (number) of field (1 = timestamp, 2 = number, 3 = text)
@@ -297,9 +283,6 @@
                (link ([rel "shortcut icon"] [href "/favicon.ico"]))
                ;; link to boostrap styles
                (link ([rel "stylesheet"] [href "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"]))
-               (link ([rel "stylesheet"] [href "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"]
-                                         [src "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"]
-                                         [src "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"]))
                ;; link to our style sheet
                (link ([rel "stylesheet"] [href "/style.css"]))
                (body(div ([class "container"])
@@ -317,7 +300,7 @@
                                              (div ([class "panel-heading"])
                                                   (h4 ([class "panel-title"]) "Gummy Bear Lab"))
                                              (div ([class "panel-body"])
-                                                  (p "Description: Determine how a gummy bear changes when it is soaked in water overnight.")
+                                                  (p "Determine how a gummy bear changes when it is soaked in water overnight.")
                                                   (img ([src "http://www.acclaimmag.com/wp-content/uploads/2014/01/2074903820_1375612450.jpg"] 
                                                         [class "img-thumbnail"]
                                                         [alt "Thumbnail Image"]))
