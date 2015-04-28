@@ -45,11 +45,9 @@ html {
   margin-right: 10px;
 }
 
-
-/* Project Images */
-.projectIMG {
-  width: auto;
-  height: 250px;
-  margin-bottom: 75px;
-  margin-left: 10px;
+/* Project Thumbnails */
+.img-thumbnail{
+width: auto;
+height: 250px;
+overflow: hidden;
 }
