@@ -485,11 +485,10 @@
           (define (make-online-project request)
             ;; create the project with the given name using isense-racket API
             ;; credentials, title of project, fields
-            (let ((proj (isense-create-project (isense-credentials-pass email pass)
+            (isense-create-project (isense-credentials-pass email pass)
                                    (parse-title (request-bindings request))
-                                   (make-fields (fields (find-project (string->number id)))))))
-              (define id (proj 'id))
-            (render-media-objects-page id)))]
+                                   (make-fields (fields (find-project (string->number id)))))
+            (render-media-objects-page))]
     (send/suspend/dispatch project-title)))
 
 ;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -497,7 +496,7 @@
 
 ;; render-media-objects-page request -> doesn't return
 ;; renders media objects page
-(define (render-media-objects-page id)
+(define (render-media-objects-page)
   (local [(define (media-objects embed/url)
             (response/xexpr
              `(html (head
@@ -521,7 +520,7 @@
                                           (button ([type "submit"] [class "btn btn-success"]) "Upload & Continue"))))))))
           (define (add-media-objects request)
             ;; TO-DO: media objects
-            (render-finish-page id))]
+            (render-finish-page))]
     (send/suspend/dispatch media-objects)))
 
 
@@ -530,7 +529,7 @@
 
 ;; render-finish-page request -> doesn't return
 ;; renders finish page
-(define (render-finish-page id)
+(define (render-finish-page)
   (local [(define (finish-page embed/url)
             (response/xexpr
              `(html (head
@@ -550,8 +549,7 @@
                                     (p ([class "lead"]) "Here's the link to your project on iSENSE:")
                                     ;; project link
                                     (label ([for "project-link"]))
-                                    ,(define url ("http://isenseproject.org/projects/~s" id))
-                                    (center (input ([type "text"] [class "form-control"] [style "width: 50%;"] [value ,(format "http://isenseproject.org/projects/~s" id)])))))))))]
+                                    (center (input ([type "text"] [class "form-control"] [style "width: 50%;"] [value "http://isenseproject.org/projects/614"])))))))))]
     (send/suspend/dispatch finish-page)))
 
 ;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -561,5 +559,5 @@
 (serve/servlet render-sign-in-page
                #:extra-files-paths
                (list
-                (build-path "/Users/kaitlyncarcia/Repos/iLambda/") "htdocs"))
-                ;;(build-path "/home/ravythok/opl/iLambda") "style"))
+                ;;(build-path "/Users/kaitlyncarcia/Repos/iLambda/") "htdocs"))
+                (build-path "/home/ravythok/opl/iLambda") "style"))
