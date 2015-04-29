@@ -255,14 +255,80 @@
             (define login-url(string->url url))
             
             ;; makes GET request to iSENSE API, and display results (for debugging)
-            (display-pure-port (get-pure-port login-url))
-            
+            (define a (read-line (get-pure-port login-url)))
+            (define b (substring a 2 5))            
             ;; TO-DO: validate user name and password are correct
-            (if (eq? #t #t)
+            (if (equal? b "msg")
+                (render-sign-in-page-error)
                 ;; render project selection page if successful
-                (render-select-project-page  (login-email cred) (login-password cred))
-                ;; TO DO: user fails, display message?
-                (display "you failed.")))]
+                (render-select-project-page  (login-email cred) (login-password cred))))]
+    (send/suspend/dispatch sign-in)))
+
+;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+;; LOGIN PAGE
+
+;; render-sign-in-page: request -> doesn't return
+;; renders login page
+(define (render-sign-in-page-error)
+  (local [(define (sign-in embed/url)
+            (response/xexpr
+             `(html
+               ;; title of the page
+               (title "iLambda - Sign In")
+               ;; favicon;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+               (link ([rel "shortcut icon"] [href "/favicon.ico"]))
+               ;; link to boostrap styles
+               (link ([rel "stylesheet"] [href "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"]))
+               ;; link to our style sheet
+               (link ([rel "stylesheet"] [href "/style.css"]))
+               (body 
+                     (div ([class "container"])
+                          (div ([class "main"])
+                               (div ([class "alert alert-danger"] [role "alert"]) "The email and password you entered in does not match our records. Please try again.")
+                               ;; logo
+                               (img ([src "/iLambda-logo.png"] [class "logo"]))
+                               (p ([class "lead"])
+                                  "iLambda is designed to aid teachers in setting up projects on"
+                                  ;; link to iSENSE homepage
+                                  (a ([href "http://isenseproject.org"]) " iSENSE")
+                                  mdash"a system for collecting, visualizing, and sharing data. To begin using iLambda, "
+                                  ;; instructions bolded
+                                  (strong "please sign in with your iSENSE account."))
+                               ;; sign in form
+                               (form ([action,(embed/url login-handler)]  [class "form-horizontal"])
+                                     ;; email
+                                     (div ([class "form-group"])
+                                          (label ([for "email"] [class "col-xs-2 col-sm-2 control-label"]) "Email")
+                                          (div ([class "col-xs-10 col-sm-10"])
+                                               (input ([type "email"] [class "form-control"] [name "email"]))))
+                                     ;; password
+                                     (div ([class "form-group"])
+                                          (label ([for "password"] [class "col-xs-2 col-sm-2 control-label"]) "Password")
+                                          (div ([class "col-xs-10 col-sm-10s"])
+                                               (input ([type "password"] [class "form-control"] [name "password"]))))
+                                     ;; login button
+                                     (button ([type "submit"] [class "btn btn-primary"]) "Login"))
+                               (p "Don't have an iSENSE account?"
+                                  (a ([href "http://isenseproject.org/users/new"]) " Click here to register")".")))))))
+          ;; handles sign in form submission
+          (define (login-handler request)
+            ;; gets credentials
+            (define cred  (parse-login (request-bindings request)))
+            
+            ;; creates url with credentials as params
+            (define url (format "http://isenseproject.org/api/v1/users/myInfo?email=~s&password=~s" (string->symbol (login-email cred)) (string->symbol (login-password cred))))
+            
+            ;; converts url to string
+            (define login-url(string->url url))
+            
+            ;; makes GET request to iSENSE API, and display results (for debugging)
+            (define a (read-line (get-pure-port login-url)))
+            (define b (substring a 2 5))            
+            ;; TO-DO: validate user name and password are correct
+            (if (equal? b "msg")
+                (render-sign-in-page-error)
+                ;; render project selection page if successful
+                (render-select-project-page  (login-email cred) (login-password cred))))]
     (send/suspend/dispatch sign-in)))
 
 ;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
