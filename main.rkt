@@ -291,7 +291,7 @@
                               (p ([class "breadcrumbs"]) (span ([class "current-tab"]) "Select Project") " > Project Title > Add Media Objects > Finish")
                               (h1 "Project Selection")
                               (p ([class "lead"] [style "margin-bottom: 50px;"])"Choose from the list of pre-existing projects:")
-                     
+                              
                               ;; Row 1 of Panels-------------------------------------------
                               (div ([class "row"])
                                    ;; Gummy Bear Project----------------------  
@@ -322,131 +322,131 @@
                                                   (form ([action,(embed/url create-project)] [class "form-horizontal"])
                                                         (button ([type "submit"][class "btn btn-success"][style "margin-top: 10px;"]) "Create Project")
                                                         (input ([type "number"] [class "form-control"] [name "id"] [value "2"] [style "visibility: hidden; height: 0px;"])))))))
-                               
-                                 ;; Row 2 of Panels-------------------------------------------
-                                 (div ([class "row"])
-                                      ;; Heat Absorption Project----------------------
-                                      (div ([class "col-sm-6"])
-                                           (div ([class "panel panel-primary"])
-                                                (div ([class "panel-heading"])
-                                                     (h4 ([class "panel-title"])"Heat Absorption"))
-                                                (div ([class "panel-body"])
-                                                     (p "Determine why you stay cooler in lighter clothes than darker clothes in the hot sun.")
-                                                     (img ([src "http://www.bakesforbreastcancer.org/wp-content/uploads/2012/03/sun.jpg"] 
-                                                           [class "img-thumbnail"]
-                                                           [alt "Thumbnail Image"]))
-                                                     (p " ")
-                                                     (form ([action,(embed/url create-project)] [class "form-horizontal"])
-                                                           (button ([type "submit"][class "btn btn-success"][style "margin-top: 10px;"]) "Create Project")
-                                                           (input ([type "number"] [class "form-control"] [name "id"] [value "3"] [style "visibility: hidden; height: 0px;"]))))))
-                                      ;; Holding Your Breath Project----------------------
-                                      (div ([class "col-sm-6"])
-                                           (div ([class "panel panel-primary"])
-                                                (div ([class "panel-heading"])
-                                                     (h4 ([class "panel-title"])"Holding Your Breath"))
-                                                (div ([class "panel-body"])
-                                                     (p "Explore how your body handles holding your breath.")
-                                                     (img ([src "http://www.itsallyogababy.com/wp-content/uploads/2013/01/breathing.jpeg"] 
-                                                           [class "img-thumbnail"]
-                                                           [alt "Thumbnail Image"]))
-                                                     (p " ")
-                                                     (form ([action,(embed/url create-project)] [class "form-horizontal"])
-                                                           (button ([type "submit"][class "btn btn-success"][style "margin-top: 10px;"]) "Create Project")
-                                                           (input ([type "number"] [class "form-control"] [name "id"] [value "2"] [style "visibility: hidden; height: 0px;"])))))))
-                               
-                                 ;; Row 3 of Panels-------------------------------------------
-                                 (div ([class "row"])
-                                      ;; Freefall Project----------------------
-                                      (div ([class "col-sm-6"])
-                                           (div ([class "panel panel-primary"])
-                                                (div ([class "panel-heading"])
-                                                     (h4 ([class "panel-title"])"Freefall"))
-                                                (div ([class "panel-body"])
-                                                     (p "Determine the relationship between distance and time for free-falling objects.")
-                                                     (img ([src "http://ecx.images-amazon.com/images/I/31E3Z3sDcrL._SY300_.jpg"] 
-                                                           [class "img-thumbnail"]
-                                                           [alt "Thumbnail Image"]))
-                                                     (p " ")
-                                                     (form ([action,(embed/url create-project)] [class "form-horizontal"])
-                                                           (button ([type "submit"][class "btn btn-success"][style "margin-top: 10px;"]) "Create Project")
-                                                           (input ([type "number"] [class "form-control"] [name "id"] [value "5"] [style "visibility: hidden; height: 0px;"]))))))
-                                      ;; Bone Length and Height Project----------------------
-                                      (div ([class "col-sm-6"])
-                                           (div ([class "panel panel-primary"])
-                                                (div ([class "panel-heading"])
-                                                     (h4 ([class "panel-title"])"Correlation of Bone Length and Height"))
-                                                (div ([class "panel-body"])
-                                                     (p "Determine is there is a relationship between a person's bone size and overall height.")
-                                                     (img ([src "http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Human_arm_bones_diagram.svg/1167px-Human_arm_bones_diagram.svg.png"] 
-                                                           [class "img-thumbnail"]
-                                                           [alt "Thumbnail Image"]))
-                                                     (p " ")
-                                                     (form ([action,(embed/url create-project)] [class "form-horizontal"])
-                                                           (button ([type "submit"][class "btn btn-success"][style "margin-top: 10px;"]) "Create Project")
-                                                           (input ([type "number"] [class "form-control"] [name "id"] [value "6"] [style "visibility: hidden; height: 0px;"])))))))
-                                 
-                                 ;; Row 4 of Panels-------------------------------------------
-                                 (div ([class "row"])
-                                      ;; Density of Objects Project----------------------
-                                      (div ([class "col-sm-6"])
-                                           (div ([class "panel panel-primary"])
-                                                (div ([class "panel-heading"])
-                                                     (h4 ([class "panel-title"])"Density of Objects"))
-                                                (div ([class "panel-body"])
-                                                     (p "Compare the density of various materials.")
-                                                     (img ([src "http://isenseproject.org/media/99/99efbe54c90a72a1115faade22a5575f/plastic-counters.jpg"] 
-                                                           [class "img-thumbnail"]
-                                                           [alt "Thumbnail Image"]))
-                                                     (p " ")
-                                                     (p " ")
-                                                     (form ([action,(embed/url create-project)] [class "form-horizontal"])
-                                                           (button ([type "submit"][class "btn btn-success"][style "margin-top: 10px;"]) "Create Project")
-                                                           (input ([type "number"] [class "form-control"] [name "id"] [value "7"] [style "visibility: hidden; height: 0px;"]))))))
-                                      ;; Dice Rolls Project----------------------
-                                      (div ([class "col-sm-6"])
-                                           (div ([class "panel panel-primary"])
-                                                (div ([class "panel-heading"])
-                                                     (h4 ([class "panel-title"])"Distribution of Dice Rolls"))
-                                                (div ([class "panel-body"])
-                                                     (p "Understand the concepts of theoretical and experimental probability.")
-                                                     (img ([src "http://isenseproject.org/media/35/35270c9752997a472374aec0ce72b6e6/cover%20picture.jpg"] 
-                                                           [class "img-thumbnail"]
-                                                           [alt "Thumbnail Image"]))
-                                                     (form ([action,(embed/url create-project)] [class "form-horizontal"])
-                                                           (button ([type "submit"][class "btn btn-success"][style "margin-top: 10px;"]) "Create Project")
-                                                           (input ([type "number"] [class "form-control"] [name "id"] [value "8"] [style "visibility: hidden; height: 0px;"])))))))
-                                  ;; Row 5 of Panels-------------------------------------------
-                                 (div ([class "row"])
-                                      ;; Hooke's Law and Spring Constants Project----------------------
-                                      (div ([class "col-sm-6"])
-                                           (div ([class "panel panel-primary"])
-                                                (div ([class "panel-heading"])
-                                                     (h4 ([class "panel-title"])"Hooke's Law and Spring Constants"))
-                                                (div ([class "panel-body"])
-                                                     (p "Understand the concepts of Hooke's Law and spring constants.")
-                                                     (img ([src "http://isenseproject.org/media/37/3724d70818ac49716c81aa845919b764/cover%20picture.jpg"] 
-                                                           [class "img-thumbnail"]
-                                                           [alt "Thumbnail Image"]))
-                                                     (p " ")
-                                                     (p " ")
-                                                     (form ([action,(embed/url create-project)] [class "form-horizontal"])
-                                                           (button ([type "submit"][class "btn btn-success"][style "margin-top: 10px;"]) "Create Project")
-                                                           (input ([type "number"] [class "form-control"] [name "id"] [value "9"] [style "visibility: hidden; height: 0px;"]))))))
-                                      ;; Replacement Probability Project----------------------
-                                      (div ([class "col-sm-6"])
-                                           (div ([class "panel panel-primary"])
-                                                (div ([class "panel-heading"])
-                                                     (h4 ([class "panel-title"])"Single Draw with Replacement Probability with Two Distributions"))
-                                                (div ([class "panel-body"])
-                                                     (p "Determine the quantity of each color of the object in a container.")
-                                                     (img ([src "http://isenseproject.org/media/9f/9f4e88e4fb694cc4ea141fbadbaab685/skittles.jpg"] 
-                                                           [class "img-thumbnail"]
-                                                           [alt "Thumbnail Image"]))
-                                                     (form ([action,(embed/url create-project)] [class "form-horizontal"])
-                                                           (button ([type "submit"][class "btn btn-success"][style "margin-top: 10px;"]) "Create Project")
-                                                           (input ([type "number"] [class "form-control"] [name "id"] [value "10"] [style "visibility: hidden; height: 0px;"])))))))))))))
-                                 
                               
+                              ;; Row 2 of Panels-------------------------------------------
+                              (div ([class "row"])
+                                   ;; Heat Absorption Project----------------------
+                                   (div ([class "col-sm-6"])
+                                        (div ([class "panel panel-primary"])
+                                             (div ([class "panel-heading"])
+                                                  (h4 ([class "panel-title"])"Heat Absorption"))
+                                             (div ([class "panel-body"])
+                                                  (p "Determine why you stay cooler in lighter clothes than darker clothes in the hot sun.")
+                                                  (img ([src "http://www.bakesforbreastcancer.org/wp-content/uploads/2012/03/sun.jpg"] 
+                                                        [class "img-thumbnail"]
+                                                        [alt "Thumbnail Image"]))
+                                                  (p " ")
+                                                  (form ([action,(embed/url create-project)] [class "form-horizontal"])
+                                                        (button ([type "submit"][class "btn btn-success"][style "margin-top: 10px;"]) "Create Project")
+                                                        (input ([type "number"] [class "form-control"] [name "id"] [value "3"] [style "visibility: hidden; height: 0px;"]))))))
+                                   ;; Holding Your Breath Project----------------------
+                                   (div ([class "col-sm-6"])
+                                        (div ([class "panel panel-primary"])
+                                             (div ([class "panel-heading"])
+                                                  (h4 ([class "panel-title"])"Holding Your Breath"))
+                                             (div ([class "panel-body"])
+                                                  (p "Explore how your body handles holding your breath.")
+                                                  (img ([src "http://www.itsallyogababy.com/wp-content/uploads/2013/01/breathing.jpeg"] 
+                                                        [class "img-thumbnail"]
+                                                        [alt "Thumbnail Image"]))
+                                                  (p " ")
+                                                  (form ([action,(embed/url create-project)] [class "form-horizontal"])
+                                                        (button ([type "submit"][class "btn btn-success"][style "margin-top: 10px;"]) "Create Project")
+                                                        (input ([type "number"] [class "form-control"] [name "id"] [value "2"] [style "visibility: hidden; height: 0px;"])))))))
+                              
+                              ;; Row 3 of Panels-------------------------------------------
+                              (div ([class "row"])
+                                   ;; Freefall Project----------------------
+                                   (div ([class "col-sm-6"])
+                                        (div ([class "panel panel-primary"])
+                                             (div ([class "panel-heading"])
+                                                  (h4 ([class "panel-title"])"Freefall"))
+                                             (div ([class "panel-body"])
+                                                  (p "Determine the relationship between distance and time for free-falling objects.")
+                                                  (img ([src "http://ecx.images-amazon.com/images/I/31E3Z3sDcrL._SY300_.jpg"] 
+                                                        [class "img-thumbnail"]
+                                                        [alt "Thumbnail Image"]))
+                                                  (p " ")
+                                                  (form ([action,(embed/url create-project)] [class "form-horizontal"])
+                                                        (button ([type "submit"][class "btn btn-success"][style "margin-top: 10px;"]) "Create Project")
+                                                        (input ([type "number"] [class "form-control"] [name "id"] [value "5"] [style "visibility: hidden; height: 0px;"]))))))
+                                   ;; Bone Length and Height Project----------------------
+                                   (div ([class "col-sm-6"])
+                                        (div ([class "panel panel-primary"])
+                                             (div ([class "panel-heading"])
+                                                  (h4 ([class "panel-title"])"Correlation of Bone Length and Height"))
+                                             (div ([class "panel-body"])
+                                                  (p "Determine is there is a relationship between a person's bone size and overall height.")
+                                                  (img ([src "http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Human_arm_bones_diagram.svg/1167px-Human_arm_bones_diagram.svg.png"] 
+                                                        [class "img-thumbnail"]
+                                                        [alt "Thumbnail Image"]))
+                                                  (p " ")
+                                                  (form ([action,(embed/url create-project)] [class "form-horizontal"])
+                                                        (button ([type "submit"][class "btn btn-success"][style "margin-top: 10px;"]) "Create Project")
+                                                        (input ([type "number"] [class "form-control"] [name "id"] [value "6"] [style "visibility: hidden; height: 0px;"])))))))
+                              
+                              ;; Row 4 of Panels-------------------------------------------
+                              (div ([class "row"])
+                                   ;; Density of Objects Project----------------------
+                                   (div ([class "col-sm-6"])
+                                        (div ([class "panel panel-primary"])
+                                             (div ([class "panel-heading"])
+                                                  (h4 ([class "panel-title"])"Density of Objects"))
+                                             (div ([class "panel-body"])
+                                                  (p "Compare the density of various materials.")
+                                                  (img ([src "http://isenseproject.org/media/99/99efbe54c90a72a1115faade22a5575f/plastic-counters.jpg"] 
+                                                        [class "img-thumbnail"]
+                                                        [alt "Thumbnail Image"]))
+                                                  (p " ")
+                                                  (p " ")
+                                                  (form ([action,(embed/url create-project)] [class "form-horizontal"])
+                                                        (button ([type "submit"][class "btn btn-success"][style "margin-top: 10px;"]) "Create Project")
+                                                        (input ([type "number"] [class "form-control"] [name "id"] [value "7"] [style "visibility: hidden; height: 0px;"]))))))
+                                   ;; Dice Rolls Project----------------------
+                                   (div ([class "col-sm-6"])
+                                        (div ([class "panel panel-primary"])
+                                             (div ([class "panel-heading"])
+                                                  (h4 ([class "panel-title"])"Distribution of Dice Rolls"))
+                                             (div ([class "panel-body"])
+                                                  (p "Understand the concepts of theoretical and experimental probability.")
+                                                  (img ([src "http://isenseproject.org/media/35/35270c9752997a472374aec0ce72b6e6/cover%20picture.jpg"] 
+                                                        [class "img-thumbnail"]
+                                                        [alt "Thumbnail Image"]))
+                                                  (form ([action,(embed/url create-project)] [class "form-horizontal"])
+                                                        (button ([type "submit"][class "btn btn-success"][style "margin-top: 10px;"]) "Create Project")
+                                                        (input ([type "number"] [class "form-control"] [name "id"] [value "8"] [style "visibility: hidden; height: 0px;"])))))))
+                              ;; Row 5 of Panels-------------------------------------------
+                              (div ([class "row"])
+                                   ;; Hooke's Law and Spring Constants Project----------------------
+                                   (div ([class "col-sm-6"])
+                                        (div ([class "panel panel-primary"])
+                                             (div ([class "panel-heading"])
+                                                  (h4 ([class "panel-title"])"Hooke's Law and Spring Constants"))
+                                             (div ([class "panel-body"])
+                                                  (p "Understand the concepts of Hooke's Law and spring constants.")
+                                                  (img ([src "http://isenseproject.org/media/37/3724d70818ac49716c81aa845919b764/cover%20picture.jpg"] 
+                                                        [class "img-thumbnail"]
+                                                        [alt "Thumbnail Image"]))
+                                                  (p " ")
+                                                  (p " ")
+                                                  (form ([action,(embed/url create-project)] [class "form-horizontal"])
+                                                        (button ([type "submit"][class "btn btn-success"][style "margin-top: 10px;"]) "Create Project")
+                                                        (input ([type "number"] [class "form-control"] [name "id"] [value "9"] [style "visibility: hidden; height: 0px;"]))))))
+                                   ;; Replacement Probability Project----------------------
+                                   (div ([class "col-sm-6"])
+                                        (div ([class "panel panel-primary"])
+                                             (div ([class "panel-heading"])
+                                                  (h4 ([class "panel-title"])"Single Draw with Replacement Probability with Two Distributions"))
+                                             (div ([class "panel-body"])
+                                                  (p "Determine the quantity of each color of the object in a container.")
+                                                  (img ([src "http://isenseproject.org/media/9f/9f4e88e4fb694cc4ea141fbadbaab685/skittles.jpg"] 
+                                                        [class "img-thumbnail"]
+                                                        [alt "Thumbnail Image"]))
+                                                  (form ([action,(embed/url create-project)] [class "form-horizontal"])
+                                                        (button ([type "submit"][class "btn btn-success"][style "margin-top: 10px;"]) "Create Project")
+                                                        (input ([type "number"] [class "form-control"] [name "id"] [value "10"] [style "visibility: hidden; height: 0px;"])))))))))))))
+          
+          
           (define (create-project request)
             ;; pass email, password, and id of selected project to project title page
             (render-project-title-page email pass (parse-project (request-bindings request))))]
@@ -485,10 +485,11 @@
           (define (make-online-project request)
             ;; create the project with the given name using isense-racket API
             ;; credentials, title of project, fields
-            (isense-create-project (isense-credentials-pass email pass)
-                                   (parse-title (request-bindings request))
-                                   (make-fields (fields (find-project (string->number id)))))
-            (render-media-objects-page))]
+            (let ((proj (isense-create-project (isense-credentials-pass email pass)
+                                               (parse-title (request-bindings request))
+                                               (make-fields (fields (find-project (string->number id)))))))
+              (define id (proj 'id))
+              (render-media-objects-page id)))]
     (send/suspend/dispatch project-title)))
 
 ;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -496,7 +497,7 @@
 
 ;; render-media-objects-page request -> doesn't return
 ;; renders media objects page
-(define (render-media-objects-page)
+(define (render-media-objects-page id)
   (local [(define (media-objects embed/url)
             (response/xexpr
              `(html (head
@@ -520,7 +521,7 @@
                                           (button ([type "submit"] [class "btn btn-success"]) "Upload & Continue"))))))))
           (define (add-media-objects request)
             ;; TO-DO: media objects
-            (render-finish-page))]
+            (render-finish-page id))]
     (send/suspend/dispatch media-objects)))
 
 
@@ -529,7 +530,7 @@
 
 ;; render-finish-page request -> doesn't return
 ;; renders finish page
-(define (render-finish-page)
+(define (render-finish-page id)
   (local [(define (finish-page embed/url)
             (response/xexpr
              `(html (head
@@ -549,7 +550,7 @@
                                     (p ([class "lead"]) "Here's the link to your project on iSENSE:")
                                     ;; project link
                                     (label ([for "project-link"]))
-                                    (center (input ([type "text"] [class "form-control"] [style "width: 50%;"] [value "http://isenseproject.org/projects/614"])))))))))]
+                                    (center (input ([type "text"] [class "form-control"] [style "width: 50%;"] [value ,(format "http://isenseproject.org/projects/~s" id)])))))))))]
     (send/suspend/dispatch finish-page)))
 
 ;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -559,5 +560,5 @@
 (serve/servlet render-sign-in-page
                #:extra-files-paths
                (list
-                ;;(build-path "/Users/kaitlyncarcia/Repos/iLambda/") "htdocs"))
-                (build-path "/home/ravythok/opl/iLambda") "style"))
+                (build-path "/Users/kaitlyncarcia/Repos/iLambda/") "htdocs"))
+;;(build-path "/home/ravythok/opl/iLambda") "style"))
