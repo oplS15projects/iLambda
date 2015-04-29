@@ -488,7 +488,7 @@
             (isense-create-project (isense-credentials-pass email pass)
                                    (parse-title (request-bindings request))
                                    (make-fields (fields (find-project (string->number id)))))
-            (render-media-objects-page))]
+            (render-media-objects-page id))]
     (send/suspend/dispatch project-title)))
 
 ;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -496,7 +496,7 @@
 
 ;; render-media-objects-page request -> doesn't return
 ;; renders media objects page
-(define (render-media-objects-page)
+(define (render-media-objects-page id)
   (local [(define (media-objects embed/url)
             (response/xexpr
              `(html (head
@@ -513,7 +513,17 @@
                                     ;;  bread crumbs
                                     (p ([class "breadcrumbs"]) "Select Project > Project Title > "(span ([class "current-tab"]) "Add Media Objects")" > Finish")
                                     (h1 "Add Media Objects to Your Project")
-                                    ;; media objects form
+                                    ;; Picture link
+                                     (div ([class "form-group"])
+                                          (label ([for "Image"]))
+                                          (p ([class "lead"]) "Link to your project's image: ")
+                                          (center (input ([type "text"] [class "form-control"] [style "width: 60%;"] [name "picture-url"] [value ,(picture-url (find-project (string->number id)))]))))
+                                    ;; Instruction link
+                                     (div ([class "form-group"])
+                                          (label ([for "Instructions"]))
+                                          (p ([class "lead"]) "Link to your project's pdf instruction: ")
+                                          (center (input ([type "text"] [class "form-control"] [style "width: 60%;"] [name "instructions-url"] [value ,(instructions-url (find-project (string->number id)))]))))
+                                    ;; Upload File Button
                                     (form ([class "form-horizontal"] [action,(embed/url add-media-objects)])
                                           (center (input ([type "file"] [class "filestyle"] [style "margin-bottom: 25px; margin-top: 25px;"])))
                                           (p "")
