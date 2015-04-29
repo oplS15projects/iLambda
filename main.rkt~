@@ -581,20 +581,20 @@
                                     ;;  bread crumbs
                                     (p ([class "breadcrumbs"]) "Select Project > Project Title > "(span ([class "current-tab"]) "Add Media Objects")" > Finish")
                                     (h1 "Add Media Objects to Your Project")
-                                    (p ([class "lead"]) "Here are the media objects to upload to your project:")
+                                    (p ([class "lead"]) "Here's the link to your project on iSENSE:")
                                     ;; project image link 
                                     (div ([class "form-group"])
-                                         (img ([src ,(picture-url project_id)] [class "img-media-object"]))
                                          (label ([for "title"]))
                                          (center (input ([type "text"] [class "form-control"] [style "width: 60%;"] [name "picture"] [value ,(picture-url project_id)]))))
                                     ;; project instructions link
                                     (div ([class "form-group"])
-                                         (img ([src "http://www.conservationassured.org/cats_wp/wp-content/uploads/2013/10/PDF-icon.png"] [class "img-media-object"]))
                                          (label ([for "title"]))
                                          (center (input ([type "text"] [class "form-control"] [style "width: 60%;"] [name "instructions"] [value ,(instructions-url project_id)]))))
                                           ;; media objects form
                                     (form ([class "form-horizontal"] [action,(embed/url add-media-objects)])
-                                          (button ([type "submit"] [class "btn btn-success"]) "Continue"))))))))
+                                          (center (input ([type "file"] [class "filestyle"] [style "margin-bottom: 25px; margin-top: 25px;"])))
+                                          (p "")
+                                          (button ([type "submit"] [class "btn btn-success"]) "Upload & Continue"))))))))
           (define (add-media-objects request)
             ;; TO-DO: media objects
             (render-finish-page id))]
@@ -636,5 +636,5 @@
 (serve/servlet render-sign-in-page
                #:extra-files-paths
                (list
-               (build-path "/Users/kaitlyncarcia/Repos/iLambda/") "htdocs"))
-;;(build-path "/home/ravythok/opl/iLambda") "style"))
+               ;; (build-path "/Users/kaitlyncarcia/Repos/iLambda/") "htdocs"))
+(build-path "/home/ravythok/opl/iLambda") "style"))

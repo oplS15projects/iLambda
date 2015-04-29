@@ -47,7 +47,13 @@ html {
 
 /* Project Thumbnails */
 .img-thumbnail{
-width: auto;
-height: 250px;
-overflow: hidden;
+  width: 250px;
+  height: auto;
+  overflow: hidden;
+}
+
+.img-media-object {
+  width: 250px;
+  height: auto;
+  margin-bottom: 10px;
 }
