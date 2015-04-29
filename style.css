@@ -47,8 +47,8 @@ html {
 
 /* Project Thumbnails */
 .img-thumbnail{
-  width: 250px;
-  height: auto;
+  width: auto;
+  height: 250px;
   overflow: hidden;
 }
 
