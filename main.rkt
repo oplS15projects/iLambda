@@ -551,11 +551,12 @@
           (define (make-online-project request)
             ;; create the project with the given name using isense-racket API
             ;; credentials, title of project, fields
+            (define project_id (find-project (string->number id)))
             (let ((proj (isense-create-project (isense-credentials-pass email pass)
                                                (parse-title (request-bindings request))
                                                (make-fields (fields (find-project (string->number id)))))))
               (define id (proj 'id))
-              (render-media-objects-page id)))]
+              (render-media-objects-page id project_id)))]
     (send/suspend/dispatch project-title)))
 
 ;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -563,7 +564,7 @@
 
 ;; render-media-objects-page request -> doesn't return
 ;; renders media objects page
-(define (render-media-objects-page id)
+(define (render-media-objects-page id project_id)
   (local [(define (media-objects embed/url)
             (response/xexpr
              `(html (head
@@ -580,7 +581,16 @@
                                     ;;  bread crumbs
                                     (p ([class "breadcrumbs"]) "Select Project > Project Title > "(span ([class "current-tab"]) "Add Media Objects")" > Finish")
                                     (h1 "Add Media Objects to Your Project")
-                                    ;; media objects form
+                                    (p ([class "lead"]) "Here's the link to your project on iSENSE:")
+                                    ;; project image link 
+                                    (div ([class "form-group"])
+                                         (label ([for "title"]))
+                                         (center (input ([type "text"] [class "form-control"] [style "width: 60%;"] [name "picture"] [value ,(picture-url project_id)]))))
+                                    ;; project instructions link
+                                    (div ([class "form-group"])
+                                         (label ([for "title"]))
+                                         (center (input ([type "text"] [class "form-control"] [style "width: 60%;"] [name "instructions"] [value ,(instructions-url project_id)]))))
+                                          ;; media objects form
                                     (form ([class "form-horizontal"] [action,(embed/url add-media-objects)])
                                           (center (input ([type "file"] [class "filestyle"] [style "margin-bottom: 25px; margin-top: 25px;"])))
                                           (p "")
@@ -626,5 +636,5 @@
 (serve/servlet render-sign-in-page
                #:extra-files-paths
                (list
-                (build-path "/Users/kaitlyncarcia/Repos/iLambda/") "htdocs"))
-;;(build-path "/home/ravythok/opl/iLambda") "style"))
+               ;; (build-path "/Users/kaitlyncarcia/Repos/iLambda/") "htdocs"))
+(build-path "/home/ravythok/opl/iLambda") "style"))
