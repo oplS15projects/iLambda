@@ -52,7 +52,7 @@
         (set! datasets #t)
         (void))
     datasets)
-    
+  
   (lambda (msg)
     (case msg
       ((id) id)
@@ -176,7 +176,7 @@
   
   (define (parse expr)
     (map parse-project expr))
-    
+  
   (parse (search 1 count)))
 
 ; get-project-by-id
@@ -220,7 +220,7 @@
                   (map (lambda (x)
                          (get-column (json-burrow x 'id)))
                        (json-burrow response 'fields)))))
-                  
+
 
 ; isense-get-field-by-id
 ; given a field id, return the field associated with that ID
@@ -260,12 +260,12 @@
     (if (false? (json-burrow response 'id))
         (void)
         (for-each (lambda (x)
-                    (display (isense-add-field temp-proj
-                                               cred
-                                               (x 'type)
-                                               (x 'name)
-                                               (x 'unit)
-                                               (x 'restrictions))))
+                    (isense-add-field temp-proj
+                                      cred
+                                      (x 'type)
+                                      (x 'name)
+                                      (x 'unit)
+                                      (x 'restrictions)))
                   fields))
     
     (if (false? (json-burrow response 'id))
@@ -346,7 +346,7 @@
            (response (read-json (post-pure-port (string->url request)
                                                 postdata
                                                 '("Content-Type: application/json")))))
-    
+      
       (display response)
       
       (define (get-column field-id)
@@ -364,7 +364,7 @@
                         (map (lambda (x)
                                (get-column (json-burrow x 'id)))
                              (json-burrow response 'fields))))))
-    
+  
   (define (upload-pass)
     (let* ((request (string-append isense-url "/api/v1/projects/" (number->string (project 'id))
                                    "/jsonDataUpload"))
@@ -376,7 +376,7 @@
            (response (read-json (post-pure-port (string->url request)
                                                 postdata
                                                 '("Content-Type: application/json")))))
-    
+      
       (define (get-column field-id)
         (cons field-id (map (lambda (x)
                               (json-burrow x (string->symbol (number->string field-id))))
@@ -423,7 +423,7 @@
            (response (read-json (post-pure-port (string->url request)
                                                 postdata
                                                 '("Content-Type: application/json")))))
-    
+      
       (define (get-column field-id)
         (cons field-id (map (lambda (x)
                               (json-burrow x (string->symbol (number->string field-id))))
