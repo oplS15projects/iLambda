@@ -13,168 +13,14 @@
 (require web-server/servlet
          web-server/servlet-env)
 
-;; isense-racket api
-(require "isense-racket-api/isense-3.rkt")
-
 ;; net library for get and post requests
 (require net/url)
 
-;; TO-DO: tried moving database stuff into another file, but then code wasn't working.
-;; sigh... really would be nice to have that code into another file.
-;; (require "db.rkt")
+;; isense-racket api
+(require "isense-racket-api/isense-3.rkt")
 
-;; ------------------------------------------------------------------------------------------------------------------------------------------------
-;; DATABASE PROCEDURES
-
-;; define empty database
-(define projectDB '())
-
-;; makes a project entry
-(define (make-project id instructions-url picture-url title fields)
-  (list id instructions-url picture-url title fields))
-
-;; inserts project into database
-(define (insert-project project)
-  (set! projectDB (append projectDB (list project))))
-
-;; ********* project getters *********
-;; returns id (number) of project
-(define (id project)
-  (car project))
-
-;; Returns instructions url (string) of project
-(define (instructions-url project)
-  (cadr project))
-
-;; Returns picture-url (string) of project
-(define (picture-url project)
-  (caddr project))
-
-;; returns title (string) of project
-(define (title project)
-  (cadddr project))
-
-;; returns list of fields of project
-(define (fields project)
-  (car (cddddr project)))   
-
-;; ********* fields getters *********
-;; returns type (number) of field (1 = timestamp, 2 = number, 3 = text)
-(define (type field)
-  (car field))
-
-;; returns name (string) of field
-(define (name field)
-  (cadr field))
-
-;; returns units (string) of field
-(define (units field)
-  (caddr field))
-
-;; returns restrictions (string) of field
-(define (restrictions field)
-  (cadddr field))
-
-;; ********* misc. *********
-;; returns project (as a list) with given id
-(define (find-project id)
-  (car (filter (lambda (x) (= (car x) id)) projectDB)))
-
-;; makes a fields object with all a project's fields
-(define (make-fields fields)
-  (if (null? fields)
-      '()
-      (cons (isense-project-field (name (car fields)) (type (car fields)) (units (car fields)) (restrictions (car fields))) (make-fields (cdr fields)))))
-
-;; ------------------------------------------------------------------------------------------------------------------------------------------------
-;; DATABASE ENTRIES
-
-;; Gummy Bear
-(insert-project (make-project 1
-                              "http://weblab.cs.uml.edu/~kcarcia/OPLProject/gummy-bear.pdf"
-                              "http://www.acclaimmag.com/wp-content/uploads/2014/01/2074903820_1375612450.jpg"
-                              "Gummy Bear Lab"
-                              (list (list 2 "Length" "m" "")
-                                    (list 2 "Width" "m" "")
-                                    (list 2 "Height" "m" "")
-                                    (list 2 "Volume" "m^3" "")
-                                    (list 2 "Mass" "oz" "")
-                                    (list 3 "Day" "" "Day 1, Day 2")
-                                    (list 3 "Color" "" "Red,Yellow,Orange,Green,Colorless,Blue,Purple"))))
-;; Measuring Heart Rate
-(insert-project (make-project 2
-                              "http://weblab.cs.uml.edu/~kcarcia/OPLProject/measuring-heart-rate.pdf"
-                              "http://www.runnersgoal.com/wp-content/uploads/2013/07/heartratezone.jpg"
-                              "Measuring Heart Rate"
-                              (list (list 2 "Heart Rate" "" "")
-                                    (list 2 "Time Elapsed" "seconds" ""))))
-;; Heat Absorption
-(insert-project (make-project 3
-                              "http://weblab.cs.uml.edu/~kcarcia/OPLProject/heat-absorption.pdf"
-                              "http://www.bakesforbreastcancer.org/wp-content/uploads/2012/03/sun.jpg"
-                              "Heat Absorption"
-                              (list (list 1 "Timestamp" "" "")
-                                    (list 3 "Glass" "" "Light,Dark")
-                                    (list 2 "Temperature" "C" ""))))
-;; Holding Your Breath
-(insert-project (make-project 4
-                              "http://weblab.cs.uml.edu/~kcarcia/OPLProject/holding-your-breath.pdf"
-                              "http://www.itsallyogababy.com/wp-content/uploads/2013/01/breathing.jpeg"
-                              "Holding Your Breath"
-                              (list (list 2 "Breathing Normally" "seconds" "")
-                                    (list 2 "Breathing in Bag" "seconds" ""))))
-;; Freefall
-(insert-project (make-project 5
-                              "http://weblab.cs.uml.edu/~kcarcia/OPLProject/freefall.pdf"
-                              "http://ecx.images-amazon.com/images/I/31E3Z3sDcrL._SY300_.jpg"
-                              "Freefall"
-                              (list (list 2 "Time" "seconds" "")
-                                    (list 2 "Distance" "meters" ""))))
-;; Correlation of Bone Length and Height Activity
-(insert-project (make-project 6
-                              "http://weblab.cs.uml.edu/~kcarcia/OPLProject/Correlation-of%20Bone-Length-and%20Height-Activity.pdf"
-                              "http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Human_arm_bones_diagram.svg/1167px-Human_arm_bones_diagram.svg.png"
-                              "Correlation of Bone Length and Height Activity"
-                              (list (list 2 "Tibia" "cm" "")
-                                    (list 2 "Fibula" "cm" "")
-                                    (list 2 "Femur" "cm" "")
-                                    (list 2 "Total Height" "cm" ""))))
-;; Density of Objects
-(insert-project (make-project 7
-                              "http://isenseproject.org/media/06/06db85208e88aa120233d756b3550d5b/DensityofObjects.pdf"
-                              "http://isenseproject.org/media/99/99efbe54c90a72a1115faade22a5575f/plastic-counters.jpg"
-                              "Density of Objects"
-                              (list (list 2 "Mass" "g" "")
-                                    (list 2 "Volume" "mL" "")
-                                    (list 2 "Density" "g/mL" "")
-                                    (list 3 "Object Type" "" "Glass Marble,Rock,Plastic toy,Zinc washer"))))
-;; Distribution of Dice Rolls
-(insert-project (make-project 8
-                              "http://isenseproject.org/media/f2/f208d643de0018c596313ad191165e21/Distribution%20of%20Dice%20Rolls.pdf"
-                              "http://isenseproject.org/media/35/35270c9752997a472374aec0ce72b6e6/cover%20picture.jpg"
-                              "Distribution of Dice Rolls"
-                              (list (list 2 "Trial" ""  "")
-                                    (list 2 "White Dice" "" "")
-                                    (list 2 "Yellow Dice" "" "")
-                                    (list 2 "Sum" "" ""))))
-;; Hooke's Law and Spring Constants
-(insert-project (make-project 9
-                              "http://isenseproject.org/media/48/480dd73dac5829aad56f98256449bd8f/Hooke's%20Law%20and%20Spring%20Constants.pdf"
-                              "http://isenseproject.org/media/37/3724d70818ac49716c81aa845919b764/cover%20picture.jpg"
-                              "Hooke’s Law and Spring Constants"
-                              (list (list 2 "Mass" "g" "")
-                                    (list 2 "Displacement" "cm" "")
-                                    (list 3 "Spring Label (a, b, c)"  "" "a,b,c"))))
-;; Single Draw with Replacement Probability with Two Distributions
-(insert-project (make-project 10
-                              "http://isenseproject.org/media/3a/3a7e0f0d3f93543bb96d5200df7fdf93/Single_Draw_with_Replacement-Two_Distributions.pdf"
-                              "http://isenseproject.org/media/9f/9f4e88e4fb694cc4ea141fbadbaab685/skittles.jpg"
-                              "Single Draw with Replacement Probability with Two Distributions"
-                              (list (list 2 "Red" "" "")
-                                    (list 2 "Blue" "" "")
-                                    (list 2 "Yellow" "" "")
-                                    (list 3 "Bag Color" "" "Green,Pink"))))
-
+;; all database functionality
+(require "db.rkt")
 
 ;; ------------------------------------------------------------------------------------------------------------------------------------------------
 ;; BINDINGS/PARSING PROCEDURES FOR FORM SUBMISSION
@@ -210,7 +56,7 @@
              `(html
                ;; title of the page
                (title "iLambda - Sign In")
-               ;; favicon;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+               ;; favicon
                (link ([rel "shortcut icon"] [href "/favicon.ico"]))
                ;; link to boostrap styles
                (link ([rel "stylesheet"] [href "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"]))
@@ -228,7 +74,7 @@
                                   ;; instructions bolded
                                   (strong "please sign in with your iSENSE account."))
                                ;; sign in form
-                               (form ([action,(embed/url login-handler)]  [class "form-horizontal"])
+                               (form ([action ,(embed/url login-handler)]  [class "form-horizontal"])
                                      ;; email
                                      (div ([class "form-group"])
                                           (label ([for "email"] [class "col-xs-2 col-sm-2 control-label"]) "Email")
@@ -245,7 +91,7 @@
                                   (a ([href "http://isenseproject.org/users/new"]) " Click here to register")".")))))))
           ;; handles sign in form submission
           (define (login-handler request)
-            ;; gets credentials
+            ;; gets credentials from form
             (define cred  (parse-login (request-bindings request)))
             
             ;; creates url with credentials as params
@@ -255,61 +101,64 @@
             (define login-url(string->url url))
             
             ;; makes GET request to iSENSE API, and display results (for debugging)
-            (define a (read-line (get-pure-port login-url)))
-            (define b (substring a 2 5))            
-            ;; TO-DO: validate user name and password are correct
-            (if (equal? b "msg")
+            (define response (read-line (get-pure-port login-url)))
+            (define response-msg (substring response 2 5))
+            
+            ;; validate user name and password are correct
+            (if (equal? response-msg "msg")
+                ;; render login page with error if unsuccessfull
                 (render-sign-in-page-error)
                 ;; render project selection page if successful
                 (render-select-project-page  (login-email cred) (login-password cred))))]
     (send/suspend/dispatch sign-in)))
 
 ;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-;; LOGIN PAGE
+;; LOGIN ERROR PAGE
 
-;; render-sign-in-page: request -> doesn't return
-;; renders login page
+;; render-sign-in-page-error: request -> doesn't return
+;; renders login page w/ error message
 (define (render-sign-in-page-error)
   (local [(define (sign-in embed/url)
             (response/xexpr
              `(html
                ;; title of the page
                (title "iLambda - Sign In")
-               ;; favicon;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+               ;; favicon
                (link ([rel "shortcut icon"] [href "/favicon.ico"]))
                ;; link to boostrap styles
                (link ([rel "stylesheet"] [href "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"]))
                ;; link to our style sheet
                (link ([rel "stylesheet"] [href "/style.css"]))
                (body 
-                     (div ([class "container"])
-                          (div ([class "main"])
-                               (div ([class "alert alert-danger"] [role "alert"]) "The email and password you entered in does not match our records. Please try again.")
-                               ;; logo
-                               (img ([src "/iLambda-logo.png"] [class "logo"]))
-                               (p ([class "lead"])
-                                  "iLambda is designed to aid teachers in setting up projects on"
-                                  ;; link to iSENSE homepage
-                                  (a ([href "http://isenseproject.org"]) " iSENSE")
-                                  mdash"a system for collecting, visualizing, and sharing data. To begin using iLambda, "
-                                  ;; instructions bolded
-                                  (strong "please sign in with your iSENSE account."))
-                               ;; sign in form
-                               (form ([action,(embed/url login-handler)]  [class "form-horizontal"])
-                                     ;; email
-                                     (div ([class "form-group"])
-                                          (label ([for "email"] [class "col-xs-2 col-sm-2 control-label"]) "Email")
-                                          (div ([class "col-xs-10 col-sm-10"])
-                                               (input ([type "email"] [class "form-control"] [name "email"]))))
-                                     ;; password
-                                     (div ([class "form-group"])
-                                          (label ([for "password"] [class "col-xs-2 col-sm-2 control-label"]) "Password")
-                                          (div ([class "col-xs-10 col-sm-10s"])
-                                               (input ([type "password"] [class "form-control"] [name "password"]))))
-                                     ;; login button
-                                     (button ([type "submit"] [class "btn btn-primary"]) "Login"))
-                               (p "Don't have an iSENSE account?"
-                                  (a ([href "http://isenseproject.org/users/new"]) " Click here to register")".")))))))
+                (div ([class "container"])
+                     (div ([class "main"])
+                          ;; error message
+                          (div ([class "alert alert-danger"] [role "alert"]) "The email and password you entered in does not match our records. Please try again.")
+                          ;; logo
+                          (img ([src "/iLambda-logo.png"] [class "logo"]))
+                          (p ([class "lead"])
+                             "iLambda is designed to aid teachers in setting up projects on"
+                             ;; link to iSENSE homepage
+                             (a ([href "http://isenseproject.org"]) " iSENSE")
+                             mdash"a system for collecting, visualizing, and sharing data. To begin using iLambda, "
+                             ;; instructions bolded
+                             (strong "please sign in with your iSENSE account."))
+                          ;; sign in form
+                          (form ([action ,(embed/url login-handler)]  [class "form-horizontal"])
+                                ;; email
+                                (div ([class "form-group"])
+                                     (label ([for "email"] [class "col-xs-2 col-sm-2 control-label"]) "Email")
+                                     (div ([class "col-xs-10 col-sm-10"])
+                                          (input ([type "email"] [class "form-control"] [name "email"]))))
+                                ;; password
+                                (div ([class "form-group"])
+                                     (label ([for "password"] [class "col-xs-2 col-sm-2 control-label"]) "Password")
+                                     (div ([class "col-xs-10 col-sm-10s"])
+                                          (input ([type "password"] [class "form-control"] [name "password"]))))
+                                ;; login button
+                                (button ([type "submit"] [class "btn btn-primary"]) "Login"))
+                          (p "Don't have an iSENSE account?"
+                             (a ([href "http://isenseproject.org/users/new"]) " Click here to register")".")))))))
           ;; handles sign in form submission
           (define (login-handler request)
             ;; gets credentials
@@ -322,10 +171,12 @@
             (define login-url(string->url url))
             
             ;; makes GET request to iSENSE API, and display results (for debugging)
-            (define a (read-line (get-pure-port login-url)))
-            (define b (substring a 2 5))            
-            ;; TO-DO: validate user name and password are correct
-            (if (equal? b "msg")
+            (define response (read-line (get-pure-port login-url)))
+            (define response-msg (substring response 2 5))
+            
+            ;; validate user name and password are correct
+            (if (equal? response-msg "msg")
+                ;; render login page with error if unsuccessfull
                 (render-sign-in-page-error)
                 ;; render project selection page if successful
                 (render-select-project-page  (login-email cred) (login-password cred))))]
@@ -541,22 +392,25 @@
                                     (p ([class "breadcrumbs"]) "Select Project > " (span ([class "current-tab"]) "Project Title") " > Add Media Objects > Finish")
                                     (h1 "Your Project's Title")
                                     ;; project title form
-                                    (form ([class "form-horizontal"] [action,(embed/url make-online-project)])
-                                          ;; project title
+                                    (form ([class "form-horizontal"] [action ,(embed/url make-online-project)])
+                                          ;; project title, the default title is the value, but can be changed by the user
                                           (div ([class "form-group"])
                                                (label ([for "title"]))
                                                (center (input ([type "text"] [class "form-control"] [style "width: 60%;"] [name "title"] [value ,(title (find-project (string->number id)))]))))
                                           ;; next button
-                                          (button ([type "submit"] [class "btn btn-success"]) "Save & Continue"))))))))
+                                          (button ([type "submit"] [class "btn btn-success"]) "Continue"))))))))
           (define (make-online-project request)
+            ;; search for project in database
+            (define project (find-project (string->number id)))
+            
             ;; create the project with the given name using isense-racket API
             ;; credentials, title of project, fields
-            (define project_id (find-project (string->number id)))
             (let ((proj (isense-create-project (isense-credentials-pass email pass)
                                                (parse-title (request-bindings request))
                                                (make-fields (fields (find-project (string->number id)))))))
+              ;; id of project on iSENE
               (define id (proj 'id))
-              (render-media-objects-page id project_id)))]
+              (render-media-objects-page id project)))]
     (send/suspend/dispatch project-title)))
 
 ;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -564,7 +418,7 @@
 
 ;; render-media-objects-page request -> doesn't return
 ;; renders media objects page
-(define (render-media-objects-page id project_id)
+(define (render-media-objects-page id project)
   (local [(define (media-objects embed/url)
             (response/xexpr
              `(html (head
@@ -583,23 +437,21 @@
                                     (h1 "Add Media Objects to Your Project")
                                     (p ([class "lead"]) "Here are the media objects to upload to your project:")
                                     ;; project image link 
-                                    (div ([class "form-group"])
-                                         (img ([src ,(picture-url project_id)] [class "img-media-object"]))
-                                         (label ([for "title"]))
-                                         (center (input ([type "text"] [class "form-control"] [style "width: 60%;"] [name "picture"] [value ,(picture-url project_id)]))))
+                                    (div ([class "row"])
+                                         (img ([src ,(picture-url project)] [class "img-media-object"])))
+                                    (div ([class "row"] [style "margin-bottom: 25px;"])
+                                         (a ([href ,(picture-url project)]) ,(picture-url project)))
                                     ;; project instructions link
-                                    (div ([class "form-group"])
-                                         (img ([src "http://www.conservationassured.org/cats_wp/wp-content/uploads/2013/10/PDF-icon.png"] [class "img-media-object"]))
-                                         (label ([for "title"]))
-                                         (center (input ([type "text"] [class "form-control"] [style "width: 60%;"] [name "instructions"] [value ,(instructions-url project_id)]))))
-                                          ;; media objects form
-                                    (form ([class "form-horizontal"] [action,(embed/url add-media-objects)])
+                                    (div ([class "row"])
+                                         (img ([src "http://www.conservationassured.org/cats_wp/wp-content/uploads/2013/10/PDF-icon.png"] [class "img-media-object"])))
+                                    (div ([class "row"] [style "margin-bottom: 25px;"])
+                                         (a ([href ,(instructions-url project)]) ,(instructions-url project)))
+                                    ;; media objects form - continues to finish page
+                                    (form ([class "form-horizontal"] [action ,(embed/url add-media-objects)])
                                           (button ([type "submit"] [class "btn btn-success"]) "Continue"))))))))
           (define (add-media-objects request)
-            ;; TO-DO: media objects
             (render-finish-page id))]
     (send/suspend/dispatch media-objects)))
-
 
 ;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ;; FINISH PAGE
@@ -625,16 +477,16 @@
                                     (h1 "Congrats, you're finished!")
                                     (p ([class "lead"]) "Here's the link to your project on iSENSE:")
                                     ;; project link
-                                    (label ([for "project-link"]))
-                                    (center (input ([type "text"] [class "form-control"] [style "width: 50%;"] [value ,(format "http://isenseproject.org/projects/~s" id)])))))))))]
+                                    (a ([href ,(format "http://isenseproject.org/projects/~s" id)]) ,(format "http://isenseproject.org/projects/~s" id))))))))]
     (send/suspend/dispatch finish-page)))
 
 ;; ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ;; START SERVER
 
-;; produces a page that displays all of the web content
+;; start web server
 (serve/servlet render-sign-in-page
                #:extra-files-paths
                (list
-               (build-path "/Users/kaitlyncarcia/Repos/iLambda/") "htdocs"))
+                ;; IMPORTANT: MUST CHANGE PATH FOR CSS TO WORK
+                (build-path "/Users/kaitlyncarcia/Repos/iLambda/") "htdocs"))
 ;;(build-path "/home/ravythok/opl/iLambda") "style"))
