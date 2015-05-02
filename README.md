@@ -50,4 +50,4 @@ This code is for our Media Object Page. It created a browse button on the webpag
 
 #How to Download and Run
 Simply download this repo as a ZIP or clone it. You must change a path in main.rkt to get the style to work on your computer.
-The path you must change is at the very bottom of the file and looks like (build-path "/Users/kaitlyncarcia/Repos/iLambda/") "htdocs")). The latest release as of 4/27 is v3.0.
+The path you must change is at the very bottom of the file and looks like (build-path "/Users/kaitlyncarcia/Repos/iLambda/") "htdocs")). The latest release as of 5/1 is 4.0.
